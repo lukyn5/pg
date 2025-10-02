@@ -1,3 +1,11 @@
+def delitelne_beze_zbytku_3(cislo):
+    if cislo % 3 == 0:
+        return True
+    else:
+        return False
+
+
+
 def main():
     vstup = input("zadej číslo: ")
     vstup = int(vstup)
@@ -12,5 +20,17 @@ def main():
         print(f"Číslo {vstup}je to 10")
 
 
+
+
+    otevreny_soubor = open("soubor.txt", "r")
+    obsah_souboru = otevreny_soubor.read()
+    print(obsah_souboru)
+
+
 if __name__ == "__main__":
+    if delitelne_beze_zbytku_3(15) == True:
+        print("Je dělitelné beze zbytku")
+    else:
+        print("Není dělitelné beze zbytku")
+
     main()
