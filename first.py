@@ -8,6 +8,6 @@ def sudy_nebo_lichy(cislo):
 
 if __name__ == "__main__":
     if sudy_nebo_lichy(5) == True:
-        print("Je sudé")
+        print(f"Číslo {cislo} je sudé")
     else:
-        print("Je liché")
+        print(f"Číslo {cislo} je liché")
