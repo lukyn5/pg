@@ -5,12 +5,12 @@ def main():
     vstup -= 2
 
     if vstup > 10:
-        print("větší než 10")
-
+        print(f"Číslo {vstup} větší než 10")
+    elif vstup < 10:
+        print(f"Číslo {vstup} je menší než 10")
     else:
-        print("mendsi")
+        print(f"Číslo {vstup}je to 10")
 
-    print(f"trojnásobek5 čísla je {vstup}")
 
 if __name__ == "__main__":
     main()
