@@ -1,4 +1,4 @@
-def delitelne_beze_zbytku_3(cislo):
+def delitelne_beze_zbytku(cislo):
     if cislo % 3 == 0:
         return True
     else:
@@ -28,7 +28,8 @@ def main():
 
 
 if __name__ == "__main__":
-    if delitelne_beze_zbytku_3(15) == True:
+
+    if delitelne_beze_zbytku(15) == True:
         print("Je dělitelné beze zbytku")
     else:
         print("Není dělitelné beze zbytku")
