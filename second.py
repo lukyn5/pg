@@ -1,6 +1,6 @@
 def cislo_text(cislo):
 
-    # určení čísel
+    # určení čísel - textové hodnoty
     prvni = ['nula', 'jedna', 'dva', 'tři', 'čtyři', 'pět', 'šest', 'sedm', 'osm', 'devět']
     druha = ['dvacet', 'třicet', 'čtyřicet', 'patesát', 'šedesát', 'sedmdesát', 'osmdesát', 'devadesát'] # -2
     nact = ['deset', 'jedenáct', 'dvanáct', 'třináct', 'čtrnáct', 'patnáct', 'šestnáct', 'sedmnáct', 'osmnáct', 'devatenáct']
@@ -24,8 +24,10 @@ def cislo_text(cislo):
         else:
             return druha[desitky] + " " + prvni[jednotky]
         
+        # vyjímka pro číslo 100
     if cislo == 100:
         return "sto"
+    # podmínka pro čísla větší než 100
     if cislo > 100:
         print ("Nelze zadat větší číslo než 100")
 
