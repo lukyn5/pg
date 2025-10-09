@@ -25,6 +25,21 @@ def vrat_treti_prvek(seznam):
     
 def prumer(cisla):
     return sum(cisla) / len(cisla)
+
+
+def naformatuj_text(zak):
+
+
+    jmeno = zak['jmeno']
+    primeni = zak['primeni']
+    vek = zak['vek']
+    obor = zak['obor']
+    
+    prm = round(sum(zak['znamky']) / len(zak['znamky']), 2)
+
+    prt = ("Student: " + jmeno + " " + primeni + ", Vek: " + str(vek) + ", Obor: " + obor + ", Prumer: " + str(prm))
+
+    return prt
     
 
 
@@ -42,8 +57,16 @@ if __name__ == "__main__":
    # y = [12, 24, 56, 78]
    # print(vrat_treti_prvek(y)) # vrati 56
 
+   # cisla = [1, 2, 3, 4, 5]
+   # print(prumer(cisla))
 
 
-
-    cisla = [1, 2, 3, 4, 5]
-    print(prumer(cisla))
+   student = {
+       "jmeno" : "Jan",
+       "primeni" : "Novak",
+       "vek" : 22,
+       "znamky" : [1, 2, 3, 1, 2, 1],
+   }
+   student["vek"] += 1
+   student["obor"] = "AEFP"
+   print(naformatuj_text(student))
