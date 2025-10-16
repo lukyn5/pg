@@ -27,3 +27,5 @@ if __name__ == "__main__":
     vek = [25, 30, 22]
     for vek, jmeno in zip(vek, jmeno):
         print(f"{jmeno} je stary {vek} let")
+
+
