@@ -1,13 +1,18 @@
 def je_prvocislo(cislo):
+    if cislo <= 1:
+        return False
+    
+    if cislo == 2:
+        return True
+    
+    for i in range(2, cislo):
+        if cislo % i == 0:
 
-    for i in range(cislo - 1):
-        i += 1
-        podil = cislo / i
-        if podil.is_integer:
-            return True
-        
-        else:
             return False
+    
+    return True
+
+       
     """
     Funkce overi, zda zadane cislo je nebo neni prvocislo a vrati True nebo False
 
@@ -28,14 +33,19 @@ def je_prvocislo(cislo):
     """
 
 def vrat_prvocisla(maximum):
-    """
-    Funkce spocita vsechna prvocisla v rozsahu 1 az maximum a vrati je jako seznam.
-    """
-    return [2,3,5]
+    result = []
+
+    aktualni = 0
+
+    while aktualni < maximum + 1:
+        if je_prvocislo(aktualni):
+            result.append(aktualni)
+
+        aktualni += 1
+
+    return result
 
 if __name__ == "__main__":
-    cislo = input("Zadej maximum: ")
-    #prvocisla = vrat_prvocisla(cislo)
-    #print(prvocisla)
-
-    je_prvocislo(cislo)
+    cislo = int(input("Zadej maximum: "))
+    prvocisla = vrat_prvocisla(cislo)
+    print(prvocisla)
