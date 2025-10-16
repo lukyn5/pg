@@ -3,11 +3,11 @@ def je_prvocislo(cislo):
     for i in range(cislo - 1):
         i += 1
         podil = cislo / i
-        if podil == float:
-            return False
+        if podil.is_integer:
+            return True
         
         else:
-            return True
+            return False
     """
     Funkce overi, zda zadane cislo je nebo neni prvocislo a vrati True nebo False
 
@@ -26,7 +26,6 @@ def je_prvocislo(cislo):
     36 * 1
     Jak vidite v druhe polovine se dvojice opakuji, tzn. v tomto pripade staci overit delitelnost pouze do 6 (vcetne)
     """
-    return False
 
 def vrat_prvocisla(maximum):
     """
@@ -36,5 +35,7 @@ def vrat_prvocisla(maximum):
 
 if __name__ == "__main__":
     cislo = input("Zadej maximum: ")
-    prvocisla = vrat_prvocisla(cislo)
-    print(prvocisla)
+    #prvocisla = vrat_prvocisla(cislo)
+    #print(prvocisla)
+
+    je_prvocislo(cislo)
