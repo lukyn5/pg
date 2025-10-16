@@ -1,4 +1,13 @@
 def je_prvocislo(cislo):
+
+    for i in range(cislo - 1):
+        i += 1
+        podil = cislo / i
+        if podil == float:
+            return False
+        
+        else:
+            return True
     """
     Funkce overi, zda zadane cislo je nebo neni prvocislo a vrati True nebo False
 
