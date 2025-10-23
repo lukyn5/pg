@@ -1,5 +1,18 @@
+def vrat_3_hodnoty():
+    return 1, 2, 3
+
+
 if __name__ == "__main__":
 
+    student = {
+        "jmeno": "Alice",
+        "Age": 25,
+    }
+
+
+
+
+'''
     fronta = [] #FIFO
     fronta.append(10)
     fronta.append(5)
@@ -15,3 +28,5 @@ if __name__ == "__main__":
     print(fronta.pop(0))
     print(fronta.pop(0))
     print(fronta)
+'''
+
