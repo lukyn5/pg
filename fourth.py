@@ -135,7 +135,9 @@ def je_tah_mozny(figurka, cilova_pozice, obsazene_pozice):
     x, y = tuple(cilova_pozice)
 
     if 0 < x < 9 and 0 < y < 9:
-        #Daná pozice je na šachovnici#
+        #Daná pozice je na šachovnici
+        pass
+        
     else:
         #Daná pozice je mimo šachovnici
         return False
