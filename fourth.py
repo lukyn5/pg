@@ -119,8 +119,7 @@ def je_tah_mozny_kral(kral, cilova_pozice, obsazene_pozice):
     if dx <= 1 and dy <= 1 and (dx != 0 or dy != 0):
         # Cílové pole nesmí být obsazeno (pro zjednodušení)
         if cilova_pozice in obsazene_pozice:
-             if cilova_pozice != kral["pozice"]:
-                return False
+            return False
         return True
         
     return False
@@ -142,25 +141,21 @@ def je_tah_mozny(figurka, cilova_pozice, obsazene_pozice):
         #Daná pozice je mimo šachovnici
         return False
 
-    if figurka == pesec:
+    typ = figurka["typ"]
+    
+    if typ == "pěšec":
         return je_tah_mozny_pesak(figurka, cilova_pozice, obsazene_pozice)
-    
-    if figurka == vez:
+    elif typ == "věž":
         return je_tah_mozny_vez(figurka, cilova_pozice, obsazene_pozice)
-    
-    if figurka == strelec:
+    elif typ == "střelec":
         return je_tah_mozny_strelec(figurka, cilova_pozice, obsazene_pozice)
-    
-    if figurka == dama:
+    elif typ == "dáma":
         return je_tah_mozny_dama(figurka, cilova_pozice, obsazene_pozice)
-    
-    if figurka == jezdec:
+    elif typ == "jezdec":
         return je_tah_mozny_jezdec(figurka, cilova_pozice, obsazene_pozice)
-    
-    if figurka == kral:
+    elif typ == "král":
         return je_tah_mozny_kral(figurka, cilova_pozice, obsazene_pozice)
-
-
+    
     return False
 
 
