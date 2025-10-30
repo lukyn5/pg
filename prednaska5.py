@@ -1,10 +1,14 @@
+class ChybaDeleniNulou(Exception):
+    pass
+
 def vydel (citatel, jmenovatel):
-    try:
-        return citatel / jmenovatel
-    except ZeroDivisionError:
-        print("Nelze dělit 0")
+    if jmenovatel == 0:
+        raise ChybaDeleniNulou("Nulou nelze dělit")
+    
+    return citatel / jmenovatel
+    
 
-
+    
 if __name__ == "__main__":
 
     try:
@@ -22,7 +26,10 @@ if __name__ == "__main__":
 
         print(vysledek)
 
-    except Exception:
-        print("V nasem programu nastala chyba")
+    except ChybaDeleniNulou as e:
+        print("Pokusili jste se dělit nulou!!!")
+
+    except Exception as e:
+        print(f"V nasem programu nastala chyba {e}")
 
 
