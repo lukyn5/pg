@@ -17,6 +17,19 @@ def read_header(file_name, header_length):
 
 
 def is_jpeg(file_name):
+
+    """
+    try:
+        with open("obrazek.jpg", "rb") as soubor:
+            prvni_dva_bajty = soubor.read(2)
+            if prvni_dva_bajty == jpeg_header:
+                print("Soubor je typu JPEG.")
+            else:
+                print("Soubor není typu JPEG.")
+    except FileNotFoundError:
+        print("Chyba: Soubor nebyl nalezen.")
+    """
+
     """
     Funkce zkusí přečíst ze souboru hlavičku obrázku jpeg,
     tu srovná s definovanou hlavičkou v proměnné jpeg_header
