@@ -1,6 +1,8 @@
 #from p6_muj_modul import fibonacci
 import random
 import time
+import requests
+
 
 def hraci_automat():
     symboly = ["💩", "💀", "🤖", "🎉", "⭐", "🔥", "🌟"]
