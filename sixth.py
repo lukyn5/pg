@@ -9,6 +9,7 @@ def download_url_and_get_all_hrefs(url):
     pokud ano, najdete ve stazenem obsahu stranky response.content vsechny vyskyty
     <a href="url">odkaz</a> a z nich nactete url, ktere vratite jako seznam pomoci return
     """
+    response = requests.get(url)
     hrefs = []
 
     return hrefs
