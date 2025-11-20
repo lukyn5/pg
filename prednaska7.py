@@ -1,0 +1,52 @@
+import math
+from abc import abstractmethod
+
+class Tvar:
+    @abstractmethod
+    def obsah(self):
+        pass
+
+class Ctverec(Tvar):
+    def __init__(self, hrana):
+        self.hrana = hrana
+
+    def obsah(self):
+        return self.hrana * self.hrana
+
+
+
+
+
+class Kruh(Tvar):
+    def __init__(self, polomer):
+        self.polomer = polomer
+
+    def obsah(self):
+        return math.pi * self.polomer * self.polomer
+
+
+if __name__ == "__main__":
+
+    obj = Tvar()
+
+    tvary = [Ctverec(2), Ctverec(3), Kruh(2), Ctverec(1), Kruh(3)]
+
+    suma = 0
+
+    for tvar in tvary:
+        suma += tvar.obsah()
+
+    print(f"Celková suma všech tvarů je {suma}")
+
+    
+
+    
+"""
+    obj1 = Ctverec(2)
+    print(obj1.obsah())
+
+    obj2 = Kruh(5)
+    print(obj2.obsah())
+
+
+"""
