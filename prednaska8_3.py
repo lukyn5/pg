@@ -21,5 +21,5 @@ if __name__ == "__main__":
     ucet = Ucet()
 
     print(ucet.zustatek)
-    ucet.zustatek = -100
+    ucet.zustatek = + 100
     print(ucet.zustatek)
