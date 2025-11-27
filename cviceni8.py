@@ -1,43 +1,56 @@
-class ChybnyDatovyTyp(Exception):
+class InvalidData(Exception):
     pass
+
 
 class Osoba:
     def __init__(self, jmeno, telefon, email):
         self.jmeno = jmeno
         self.telefon = telefon
         self.email = email
+    
+    def __str__(self):
+        return f'Osoba({self.jmeno}, {self.telefon}, {self.email})'
 
     @property
     def jmeno(self):
-        """Getter pro atribut jmeno."""
         return self.__jmeno
 
     @jmeno.setter
-    def jmeno(self, nove_jmeno):
-        """Setter pro atribut jmeno s validací."""
-        
-        # 1. Kontrola datového typu
-        if not isinstance(nove_jmeno, str):
-            raise ChybnyDatovyTyp('Jméno musí být textový řetězec (str).')
-        
-        # 2. Kontrola obsahu (pouze písmena a mezery)
-        ciste_jmeno = nove_jmeno.replace(' ', '')
-        
-        if len(ciste_jmeno) == 0 or not ciste_jmeno.isalpha():
-            raise ChybnyDatovyTyp('Jméno smí obsahovat pouze písmena a mezery.')
+    def jmeno(self, hodnota: str):
+        for c in hodnota:
+            if not c.isalpha() and not c.isspace():
+                raise InvalidData(f'Chybne zadane jmeno "{hodnota}"')
+        self.__jmeno = hodnota
 
-        # Pokud validace projde, uložíme hodnotu do interní proměnné.
-        self.__jmeno = nove_jmeno
-
-    def __str__(self):
-        return f'Osoba({self.jmeno} ,{self.telefon}, {self.email})'
+    @property
+    def telefon(self):
+        return self.__telefon
     
+    @telefon.setter
+    def telefon(self, hodnota: str):
+        if not len(hodnota) == 13:
+            raise InvalidData(f'Cislo musi obsahovat 13 znaku')
+        if hodnota[0] != '+':
+            raise InvalidData(f'Cislo musi zacinat +')
+        if not hodnota[1:].isdigit():
+            raise InvalidData(f'Neni cislo')
+        self.__telefon = hodnota
+
+    @property
+    def email(self):
+        return self.__email
+    
+    @email.setter
+    def email(self, hodnota: str):
+        if '@' not in hodnota:
+            raise InvalidData(f'Email musi obsahovat @')
+        if not hodnota.endswith('.cz'):
+            raise InvalidData(f'Email musi koncit .cz')
+        if not hodnota.replace('@', '').replace('.', '').isalnum():
+            raise InvalidData(f'Email obsahuje nepovolene znaky')
+        self.__email = hodnota
 
 if __name__ == "__main__":
+    o1 = Osoba("Tomas", "+420777888999", "ahoj1@email.cz")
+    print(o1)
     
-    try:
-        # Toto vyvolá chybu, protože jsou tam čísla
-        o1 = Osoba("12345", "+420777888999", "ahoj ahoj@email.cz")
-        print(o1)
-    except ChybnyDatovyTyp as e:
-        print(f"Chyba: {e}")
