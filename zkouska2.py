@@ -36,7 +36,8 @@ def convert_to_czk(amount, currency):
     for line in lines[2:]:
         parts = line.split('|')
         
-        
+        if len(parts) < 5:
+            continue  # Přeskočit neplatný řádek
             
         code = parts[3]
         
